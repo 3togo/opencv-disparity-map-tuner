@@ -21,9 +21,12 @@ FORMS    += mainwindow.ui
 
 # by default, Qt does not support pkg-config for Mac OS
 # so we must enable it
-QT_CONFIG -= no-pkg-config
+#QT_CONFIG -= no-pkg-config
 
 # we add the package opencv to pkg-config
 CONFIG += link_pkgconfig
-PKGCONFIG += opencv4
-INCLUDEPATH +=/usr/local/Cellar/opencv/4.1.0_2/include/opencv4
+PKGCONFIG += opencv
+OPENCV_PATH=/opt/opencv4
+INCLUDEPATH +=$${OPENCV_PATH}/include/opencv4
+#INCLUDEPATH +=/usr/include
+LIBS+=-L$${OPENCV_PATH}/lib
